@@ -1,0 +1,54 @@
+{% load static %}
+{% load i18n %}
+<div id="sobre-mim">
+  <div class="container">
+    <div class="row row-cols-3 justify-content-start">
+      <div class="col col-lg-4 offset-1">
+        <div class="site-heading">
+          <h2 class="section-title espacar">{% trans 'SOBRE MIM' %}</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="row row-cols-3 justify-content-md-around">
+      <div class="col col-lg-4">
+        <p class="text-justify">
+            {% blocktranslate %}
+            Meu nome é Rodolpho Kades, sou desenvolvedor Python e engenheiro mecânico.
+            Tive meu primeiro contato com a programação durante a universidade e me apaixonei pela área.
+            {% endblocktranslate %}
+        </p>
+        <p class="text-justify">
+            {% blocktranslate %}
+            Fui apresentado à linguagem Python por um professor e a utilizei principalmente em trabalhos de
+                análise de dados durante as disciplinas.
+                Posteriormente, em 2017, desenvolvi meu primeiro projeto em Python, um package para solucionar um
+                problema termodinâmico que estudei em meu TCC.
+            {% endblocktranslate %}
+        </p>
+      </div>
+      <div class="col col-md-auto align-self-center">
+
+            <img class="dado" src="data:image/png;base64,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">
+
+      </div>
+      <div class="col col-lg-4">
+        <p class="text-justify">
+            {% blocktranslate %}
+            Após a faculdade, decidi obter o título de mestre em engenharia e utilizei uma combinação de Python
+                com ANSYS Fluent (mecânica dos fluidos) para obter dados e analisá-los.
+                Decidi então me aprofundar em Python e me tornar desenvolvedor, concluindo cada vez mais cursos
+                on-line para aprofundar meus conhecimentos.
+            {% endblocktranslate %}
+        </p>
+        <p class="text-justify">
+            {% blocktranslate %}
+            Hoje possuo conhecimentos avançados de Python, de bancos de dados SQL e NoSQL e de Django Framework,
+              que utilizei para elaborar o presente website.
+            {% endblocktranslate %}
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>

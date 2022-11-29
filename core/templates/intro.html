@@ -1,0 +1,24 @@
+{% load static %}
+{% load i18n %}
+<div id="intro" class="container">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+              <div class="contents">
+                <h2 class="head-title">{% trans 'Seja bem-vindo(a)' %}<br>{% trans 'ao meu portfólio.' %}</h2>
+                <p>{% trans 'Meu nome é' %}</p>
+                <h1 class="espacar">Rodolpho Kades.</h1>
+                <p>{% trans 'Sou desenvolvedor Python/Django' %} <br>{% trans 'e Mestre em Engenharia.' %}</p>
+                <div class="header-button">
+                  <a href="#contato" class="btn btn-warning rounded-pill">{% trans 'Entre em contato' %}</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+              <div class="intro-img">
+                <img class="img-fluid shadow-lg rounded-circle imagem-animada" src="{% static 'images/photo_Rodolpho.png' %}" alt="Rodolpho Kades" width="400px"/>
+              </div>
+            </div>
+          </div>
+        </div>
+</div>

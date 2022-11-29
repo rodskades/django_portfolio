@@ -1,0 +1,117 @@
+{% load bootstrap4 %}
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% bootstrap_css %}
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styles-footers.css' %}" rel="stylesheet">
+    <link href="{% static 'css/perfis.css' %}" rel="stylesheet">
+    <link href="{% static 'css/form_depoimento.css' %}" rel="stylesheet">
+    <link type="image/png" sizes="32x32" rel="icon" href="{% static 'images/icons8-icosahedron-32.png' %}">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <title>{% trans 'Portfólio' %} | Rodolpho Kades</title>
+</head>
+<body class="custom-scrollbar">
+    <header id="header-wrap">
+      <nav class="navbar navbar-expand-md bg-dark fixed-top scrolling-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'index' %}">Rodolpho Kades | {% trans 'Portfólio' %}</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto w-100 justify-content-end clearfix">
+                    <li class="nav-item nav-underline-animation">
+                        <a class="nav-link active" aria-current="page" href="{% url 'index' %}#intro">{% trans 'Início' %}</a>
+                    </li>
+                    <li class="nav-item nav-underline-animation">
+                        <a class="nav-link" href="{% url 'index' %}#sobre-mim">{% trans 'Sobre mim' %}</a>
+                    </li>
+                    <li class="nav-item nav-underline-animation">
+                        <a class="nav-link" href="{% url 'index' %}#skills">Skills</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                            Apps
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{% url 'biblioteca' %}">{% trans 'Biblioteca' %}</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'test_coverage' %}">Tests Coverage</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item disabled" href="#">App3 - Soon</a>
+                        </div>
+                    </li>
+                    <li class="nav-item nav-underline-animation">
+                        <a class="nav-link" href="{% url 'index' %}#depoimentos">{% trans 'Depoimentos' %}</a>
+                    </li>
+                    <li class="nav-item nav-underline-animation">
+                        <a class="nav-link" href="{% url 'index' %}#contato">{% trans 'Contato' %}</a>
+                    </li>
+                    {% if user.username %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                                {% trans 'Olá' %} {{ user.first_name }}
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{% url 'perfil' %}">{% trans 'Perfil' %}</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                            </div>
+                        </li>
+                    {% else %}
+                        <li class="nav-item nav-underline-animation">
+                            <a class="nav-link" href="{% url 'login' %}">
+                                Login
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+
+            </div>
+        </div>
+      </nav>
+    </header>
+    {% block content %}
+
+    {% endblock %}
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                E-mail para contato:
+                <a href="mailto:rodolpho_kades@hotmail.com" target="_blank" rel="noopener noreferrer">
+                    rodolpho_kades@hotmail.com
+                </a><br/>
+                {% trans 'Feito em' %} Django Framework. <br/>
+                Icosahedron and contact icons by:
+                <a target="_blank" href="https://icons8.com" rel="noopener noreferrer">
+                    Icons8
+                </a>
+            </div>
+            <div class="icons">
+                <div class="animar links1">
+                    <a href="http://www.github.com/rodskades" target="_blank" rel="noopener noreferrer">
+                        <img class="transparente" src="{% static 'images/github.svg' %}" alt="GitHub"/>
+                    </a>
+                </div>
+                <div class="animar links2">
+                    <a href="http://www.linkedin.com/in/rodolpho-kades/" target="_blank" rel="noopener noreferrer">
+                        <img class="transparente" src="{% static 'images/linkedin.svg' %}" alt="LinkedIn"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    {% bootstrap_javascript jquery='full' %}
+    <script src="{% static 'js/scroll.js' %}"></script>
+    <script src="{% url 'javascript-catalog' %}"></script>
+    <script src="{% static 'js/skills.js' %}"></script>
+</body>
+</html>

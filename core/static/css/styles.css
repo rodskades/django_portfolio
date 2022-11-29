@@ -1,0 +1,356 @@
+body {
+  background-color: #e99142;
+  color: #7c1c14;
+}
+
+a {
+  color: #fff;
+  transition: ease-in-out 0.3s;
+}
+
+a:hover {
+  color: #e99142;
+}
+
+h2, h3, h4 {
+  font-size: 38px;
+  color: #7c1c14;
+  font-weight: 700;
+  font-family: 'Arvo', serif;
+}
+
+h1 {
+  font-size: 45px;
+  color: #7c1c14;
+  font-weight: 700;
+  font-family: 'Arvo', serif;
+}
+
+p {
+  font-weight: 400;
+  color: #7c1c14;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0px;
+  font-size: 18px;
+}
+
+.custom-scrollbar {
+  height: 70px;
+  overflow-y: scroll;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #7c1c14;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #e99142;
+  border-radius: 12px;
+  border: 1px solid black;
+}
+
+/* ANIMATIONS */
+.espacar {
+    transition: ease-in-out 0.3s;
+}
+
+.espacar:hover {
+    letter-spacing: 5px;
+}
+
+@keyframes animacao {
+    from {
+        top:-15px;
+    }
+    to {
+        top: 15px;
+    }
+}
+
+.imagem-animada {
+    position:relative;
+    animation: animacao 2.5s infinite alternate-reverse linear;
+}
+
+.nav-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: #e99142;
+}
+
+.nav-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #e99142;
+  transform-origin: bottom center;
+  transition: transform 0.35s ease-out;
+}
+
+.nav-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom center;
+}
+
+/*
+CSS PARA SEÇÃO INTRO
+*/
+#intro {
+  background: linear-gradient(47.7deg, #e99142 48%, #8E5D52 49%);
+  min-height: 800px;
+  max-width: 1800px;
+  position: relative;
+  overflow: hidden;
+  padding: 180px 0 80px;
+}
+
+#intro .contents .head-title {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 60px;
+  margin-bottom: 10px;
+}
+
+#intro .contents .header-button {
+  margin-top: 20px;
+  color: #222222;
+}
+
+#intro .contents .header-button .btn {
+  margin-right: 10px;
+}
+
+.intro-img {
+  display: flex;
+}
+/*
+CSS PARA SEÇÃO SOBRE MIM
+*/
+#sobre-mim {
+  background: #D99255;
+  min-height: 800px;
+  max-width: 1800px;
+  position: relative;
+  overflow: hidden;
+  padding: 120px 0 80px;
+}
+
+#sobre-mim p {
+  margin-bottom: 30px;
+}
+
+#sobre-mim .section-title {
+  color: #4C6475;
+  padding: 15px;
+}
+
+#sobre-mim .dado {
+  border-radius: 50%;
+  box-shadow: 0 10px 22px 10px rgba(27, 38, 49, 0.1);
+  animation: girar 3.5s infinite alternate-reverse ease-in-out;
+  position: relative;
+}
+
+@keyframes girar {
+    from {top:-150px; transform:rotate(0deg);}
+    to {top:150px; transform:rotate(720deg);}
+}
+
+/*
+CSS PARA SEÇÃO SKILLS
+*/
+#skills{
+  min-height: 800px;
+  max-width: 1800px;
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0 80px;
+}
+
+#skills .section-header h2 {
+  color: #67888F;
+}
+
+.skills-item {
+  padding: 20px;
+  border-radius: 4px;
+  text-align: center;
+  margin: 15px 0;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.skills-item .icon {
+  border-radius: 40%;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.skills-item .icon i {
+  font-size: 30px;
+  color: #F63854;
+  line-height: 70px;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.skills-item .skills-content h3 {
+  margin-top: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.skills-item .skills-content h3 a {
+  font-size: 20px;
+  color: #7c1c14;
+}
+
+.skills-item:hover {
+  box-shadow: 0 10px 22px 5px rgba(27, 38, 49, 0.1);
+}
+
+.skills-item:hover .icon {
+  background: #7c1c14;
+  transform: scale(1.05);
+}
+
+/*
+CSS PARA SEÇÃO DEPOIMENTOS
+*/
+#depoimentos {
+  background: #D99255;
+  min-height: 800px;
+  max-width: 1800px;
+  position: relative;
+  overflow: hidden;
+  padding: 85px 0 80px;
+}
+
+#depoimentos .section-header {
+  padding-bottom: 30px;
+}
+
+#depoimentos .section-header h2 {
+  color: #4C6475;
+}
+
+#depoimentos .instruction {
+  padding-bottom: 20px;
+}
+
+#depoimentos .carousel,
+#depoimentos .slide,
+#depoimentos .carousel-item,
+#depoimentos .carousel-inner {
+  transition: all 1.5s ease-in-out 0s;
+}
+
+#depoimentos #depoimentos-carousel {
+  min-height: 430px;
+}
+
+#depoimentos .depoimento {
+  padding: 35px;
+}
+
+#depoimentos .card {
+  width: 20rem;
+  border: transparent;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+#depoimentos .card:hover {
+  box-shadow: 0 10px 22px 5px rgba(27, 38, 49, 0.1);
+  transform: scale(1.05);
+}
+
+#depoimentos .card .card-header {
+  border-radius: 50% 50% 0% 0%;
+  color: #e99142;
+}
+
+#depoimentos .card .card-footer {
+  border-radius: 0% 0% 50% 50%;
+}
+
+#depoimentos .card .card-header,
+#depoimentos .card .card-footer {
+  background: #7c1c14;
+  border: 2px solid #7c1c14;
+}
+
+#depoimentos .card-body {
+  background: #EBAB77;
+  border: 2px solid #7c1c14;
+}
+
+#depoimentos a {
+  text-decoration: none;
+}
+
+#depoimentos .referencia:hover {
+  color: #7c1c14;
+}
+
+#depoimentos .btn-lg {
+  transition: all 0.3s ease-in-out 0s;
+}
+
+#depoimentos .btn-lg:hover {
+  transform: scale(1.05);
+}
+
+
+/*
+CSS PARA SEÇÃO CONTATO
+*/
+#contato {
+  min-height: 800px;
+  max-width: 1800px;
+  position: relative;
+  overflow: hidden;
+  padding: 110px 0 80px;
+}
+
+.contato-item {
+  padding: 15px;
+  text-align: center;
+  margin: 20px 0;
+  padding-bottom: 60px;
+}
+
+.contato-item h3 {
+  font-size: 30px;
+}
+
+.contato-item a:hover {
+  text-decoration: none;
+}
+
+#contato a {
+  color: #fff;
+  transition: ease-in-out 0.3s;
+}
+
+#contato a:hover {
+  color: #7c1c14;
+  text-decoration: none;
+}
+
+.shield-item {
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.shield-item:hover {
+  transform: scale(1.05);
+}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load i18n %}
+{% block content %}
+<div id="form_depoimento">
+    <div class="container">
+        {% if object %}
+            {% if object.nome.username == user.username %}
+            <h1>{% trans 'Alterar seu comentário:' %}</h1>
+            {% else %}
+            <h1>{% trans 'Ah safado!' %}</h1>
+            {% endif %}
+        {% else %}
+            <h1>{% trans 'Adicionar um comentário:' %}</h1>
+        {% endif %}
+        <div>
+            <form action="" method="post" autocomplete="off">
+                {% csrf_token %}
+
+                {% if object and object.nome.username != user.username %}
+                <div class="row justify-content-center">
+                    <div class="col-xs-12">
+                        <h2>{% trans 'Olá' %} {{ user.get_full_name }}.</h2>
+                        <h5>{% trans 'Você não tem autorização de alterar o depoimento' %} "{{ object }}" {% trans 'do(a)' %} {{ object.nome.get_full_name }}.</h5>
+                    </div>
+                </div>
+                {% buttons %}
+                <div class="row justify-content-center">
+                    <div class="col-xs-6">
+                        <button type="button" class="btn btn-warning btn-lg">
+                            <a href="{% url 'index' %}">{% trans 'Voltar' %}</a>
+                        </button>
+                    </div>
+                </div>
+                {% endbuttons %}
+                {% else %}
+
+                {% bootstrap_field form.titulo size='medium' placeholder=_('Um título para seu depoimento. Ex: Gostei do site!') %}
+
+                <h5>{{ form.nota.help_text }}</h5>
+                {% bootstrap_field form.nota size='medium' form_group_class='form-inline' field_class='col-nota' addon_after='<img src="https://img.icons8.com/officexs/16/null/pixel-star.png"/>' show_help=False %}
+
+                {% bootstrap_field form.comentario size='small' placeholder=_('Me diga o que achou do site!') %}
+
+                {% buttons %}
+                <button type="submit" class="btn btn-success rounded-pill btn-lg">{% trans 'Salvar' %}</button>
+                <a href="{% url 'index' %}">
+                    <button type="button" class="btn btn-danger rounded-pill btn-lg">
+                        {% trans 'Cancelar' %}
+                    </button>
+                </a>
+                {% endbuttons %}
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

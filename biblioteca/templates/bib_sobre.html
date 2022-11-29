@@ -1,0 +1,53 @@
+{% load static %}
+{% load i18n %}
+<div id="bib-sobre">
+    <div class="container">
+        <div class="section-header text-center">
+            <h1 class="espacar">{% trans 'Sobre a Biblioteca Pessoal' %}</h1>
+        </div>
+        <div class="row align-items-start justify-content-around">
+            <div class="col-lg-5">
+                <div class="about-wrapper">
+                    <div class="content sobre-bib">
+                        <p class="text-justify">
+                            {% blocktranslate %}
+                            A presente aplicação foi previamente elaborada como uma aplicação CRUD em Python e
+                            posteriormente adaptada para o Django.
+                            {% endblocktranslate %}
+                        </p>
+                        <p class="text-justify">
+                            {% blocktranslate %}
+                            A modelagem de dados foi realizada em MySQL Workbench e a aplicação CRUD utiliza o banco
+                            de dados SQLite, assim como a presente aplicação.
+                            {% endblocktranslate %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="about-wrapper">
+                    <div class="image-content">
+                        <a href="https://github.com/rodskades/BibliotecaPessoal/blob/main/media/db/database.png" target="_blank" rel="noopener noreferrer">
+                            <img src="{% static 'images/database.png' %}" class="img-fluid rounded" alt="Database">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row ref-sobre">
+            <div class="col-lg-10">
+                <div class="about-wrapper">
+                    <div class="content sobre-bib">
+                        <p class="text-justify">
+                            {% trans 'Para visualizar a versão CRUD da minha biblioteca, acesse:' %}
+                            <a href="https://github.com/rodskades/BibliotecaPessoal" target="_blank" rel="noopener noreferrer">
+                                Biblioteca Pessoal | Rodolpho Kades
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

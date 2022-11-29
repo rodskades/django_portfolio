@@ -1,0 +1,126 @@
+{% load static %}
+{% load i18n %}
+<div id="bib">
+    <div class="container">
+        <div class="section-header text-center">
+            <h1 class="espacar">{% trans 'Biblioteca Pessoal' %}</h1>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="about-wrapper">
+                    <div class="content">
+                        <p class="text-justify">
+                            {% trans 'Seja bem vindo(a) à minha biblioteca pessoal!' %}<br>
+                            {% trans 'Estão armazenados na tabela a seguir todos os dados sobre os livros que eu tenho!' %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h1>Livros</h1>
+            <table class="table table-striped table-hover bg-custom">
+                <thead class="thead-custom">
+                    <tr class="text-center">
+                        <th scope="col">#</th>
+                        <th scope="col">{% trans 'Nome' %}</th>
+                        <th scope="col">{% trans 'Gênero' %}</th>
+                        <th scope="col">{% trans 'Autor' %}</th>
+                        <th scope="col">{% trans 'Número de Páginas' %}</th>
+                        <th scope="col">{% trans 'Concluído?' %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for livro in livros %}
+                        <tr class="text-center linha">
+                            <th>{{ livro.idlivros }}</th>
+                            <th><a href="#modal{{livro.idlivros}}" class="hover-underline-animation" data-toggle="modal">{{ livro.nome }}</a></th>
+                            <th>{{ livro.genero }}</th>
+                            <th>{{ livro.autor }}</th>
+                            <th>{{ livro.paginas }}</th>
+                            <th>{{ livro.terminado }}</th>
+                        </tr>
+                        <div class="modal fade show" id="modal{{livro.idlivros}}" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="ModalLabel{{livro.idlivros}}">
+                                            {% trans 'Livro' %} {{ livro.idlivros }} - {{ livro.nome }}
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    {% with id=livro.pk %}
+                                                        <img src="/static/images/{{id}}.jpg" class="img-fluid" alt="Foto_Livro_{{livro.pk}}"/>
+                                                    {% endwith %}
+                                                </div>
+                                                <div class="col-6 align-self-center">
+                                                    <h5>{% trans 'Nome:' %}</h5>
+                                                    <p>{{ livro.nome }}</p>
+                                                    <h5 class="info-livro">{% trans 'Autor:' %}</h5>
+                                                    <p>{{ livro.autor }}</p>
+                                                    <h5 class="info-livro">{% trans 'Editora(s)' %}:</h5>
+                                                    {% for editora in editoras %}
+                                                        {% if livro.idlivros == editora.idlivros %}
+                                                            <p>{{editora.editora}}</p>
+                                                        {% endif %}
+                                                    {% endfor %}
+
+                                                    {% for i in list_complementos %}
+                                                        {% if i.0 == livro.idlivros %}
+                                                            <h5 class="info-livro">{% trans 'Complemento(s):' %}</h5>
+                                                            {% for com in complementos %}
+                                                                {% if livro.idlivros == com.idlivros %}
+                                                                    <p>{{com.complemento}}</p>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">
+                                            {% trans 'Fechar' %}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% if is_paginated %}
+            <nav aria-label="navegacao-paginacao">
+                <ul class="pagination justify-content-center">
+                    {% if page_obj.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+                    {% else %}
+                        <li class="page-item disabled"><a class="page-link" href="#">&laquo;</a></li>
+                    {% endif %}
+
+                    {% for num in paginator.page_range %}
+                        {% if page_obj.number == num %}
+                            <li class="page-item active"><a class="page-link" href="#">{{ num }}</a></li>
+                        {% else %}
+                            <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if page_obj.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+                    {% else %}
+                        <li class="page-item disabled"><a class="page-link" href="#">&raquo;</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        {% endif %}
+    </div>
+</div>

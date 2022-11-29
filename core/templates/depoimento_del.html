@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load i18n %}
+{% block content %}
+<div id="depoimento_del">
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            {% if object.nome.username == user.username %}
+            <div class="row justify-content-center">
+                <div class="col-xs-12">
+                    <h2>{% trans 'Olá' %} {{ user.get_full_name }}!</h2>
+                    <h5>{% trans 'Tem certeza que deseja deletar o depoimento' %} "{{ object }}"?</h5>
+                </div>
+            </div>
+            {% buttons %}
+            <div class="row justify-content-center">
+                <div class="col-xs-6">
+                    <button type="submit" class="btn btn-danger btn-lg">{% trans 'Confirmar' %}</button>
+                </div>
+                <div class="col-xs-6 offset-1">
+                    <button type="button" class="btn btn-warning btn-lg">
+                        <a href="{% url 'index' %}">{% trans 'Cancelar' %}</a>
+                    </button>
+                </div>
+            </div>
+            {% endbuttons %}
+            {% else %}
+            <div class="row justify-content-center">
+                <div class="col-xs-12">
+                    <h2>{% trans 'Olá' %} {{ user.get_full_name }}.</h2>
+                    <h5>{% trans 'Você não tem autorização de deletar o depoimento' %} "{{ object }}" {% trans 'do(a)' %} {{ object.nome.get_full_name }}.</h5>
+                </div>
+            </div>
+            {% buttons %}
+            <div class="row justify-content-center">
+                <div class="col-xs-6">
+                    <button type="button" class="btn btn-warning btn-lg">
+                        <a href="{% url 'index' %}">{% trans 'Voltar' %}</a>
+                    </button>
+                </div>
+            </div>
+            {% endbuttons %}
+            {% endif %}
+        </form>
+    </div>
+</div>
+{% endblock %}

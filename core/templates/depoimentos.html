@@ -1,0 +1,119 @@
+{% load static %}
+{% load i18n %}
+<div id="depoimentos">
+    <div class="container">
+        {% if messages %}
+            {% for m in messages %}
+                <div class="alert alert-{{ m.tags }}">
+                    <button type="button" class="close" data-dismiss="alert"></button>
+                    <strong>{{ m }}</strong>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="container section-header">
+        <div class="row justify-content-center">
+            <div class="col-xs-12 text-center">
+                <h2 class="espacar">{% trans 'DEPOIMENTOS' %}</h2>
+                <p>{% trans 'Nesta seção estão alguns depoimentos/comentários de visitantes sobre o meu site!' %} </p>
+            </div>
+        </div>
+    </div>
+    {% if depoimentos %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="depoimentos-carousel" class="carousel slide" data-ride="carousel" data-interval="5000"
+                     data-pause="hover">
+                    <div class="carousel-inner">
+                        {% for dep in depoimentos %}
+                        {% cycle 'start' '' '' as slidestart silent %}
+                        {% cycle '' '' 'end' as slidend silent %}
+                        {% if slidestart %}
+                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                <div class="row">
+                                    {% endif %}
+                                    <div class="col-xs-4 depoimento">
+                                        <div class="card text-center">
+                                            <div class="card-header">
+                                                <h5>{{ dep.titulo }}</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <p class="card-text">{{ dep.comentario }}</p>
+                                                <p> - </p>
+                                                <h5 class="card-title">{{ dep.nome.get_full_name }}</h5>
+                                                {% if user.username == dep.nome.username %}
+                                                <a href="{% url 'upd_depoimento' dep.pk %}" class="card-link">
+                                                    {% trans 'Editar' %}
+                                                </a>
+                                                <a href="{% url 'del_depoimento' dep.pk %}" class="card-link">
+                                                    {% trans 'Deletar' %}
+                                                </a>
+                                                {% endif %}
+                                            </div>
+                                            <div class="card-footer">
+                                                <div class="row justify-content-center">
+                                                    <div class="col-xs-4">
+                                                        {% with ''|center:dep.nota as range %}
+                                                        {% for _ in range %}
+                                                            <img src="https://img.icons8.com/officexs/16/null/pixel-star.png"/>
+                                                        {% endfor %}
+                                                        {% endwith %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% if not slidend and forloop.last or slidend %}
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-target="#depoimentos-carousel" data-slide="prev">
+                    <span aria-hidden="true">
+                        <img width="50px" height="50px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABmJLR0QA/wD/AP+gvaeTAAANdklEQVR4nO2de3QTVR7HvzdJkzRN0lf6pPRFobjyFBfEdVEKyqMcEUUX9ZzVPfyzD9cHPvYvd/fsOXo8ui4Le1RcdV1QKaIi8lBhhYJSoLyEAi2Flr7Tpk0fSUPznrt/JClNZibNpGmT1vn81bm9c+fO/eTO3El+9w4gIiIiIiIiIiIiIiIiIiISO5BoV2CkXP7rw3JdsvFJgKwFMAtAOii6QHARlO4aSKT/KfjNEVs4ZXe+dU8mdZLfUUhWEkKnAYgHYCCEVhDgo7Sny/dH8lyAcS7EsHHJQkiYTwBSwJeHEtpC3dJfZz333RFBZf9z8e9ByOsAEoJk+17qxmO6DYfbhJQdjHErxLCpZA2A7QCUw+WlFC6Xm67Peb58Wwh5Sdfmko0UeCaUergZaiBSSUnW04eqQ8k/HJJIFDLWGDYvfhDApwhBBgAQAplMSj48/fLCp4LloxTEsLlkU6gyAEAqIRkup7vi5MsL5oW6TzDGnRDD5sUPgpIdAOKE7EcIJJNT4zcd+dP8DVz/98kgwB+F1kkukyRlJ8Yf+nrDbXcI3ZdVz5EWMJYEk9HZMYCjh/QwdlqRqlPirpJsZE9iX/4pBVOj739p8eun3xySFlRG9aVenDlhwMCAC7l5Gty9NBsJavbnwe5kTJf05uUr/3HuZLjnKA13x7EmmIy21hv4amcDzCYHGAa4YXGh9rIJunQFklP8r2qEgOg0iqXLZqT2fHRcf4pSEMO/SjbzyaisMOBYuR52mxuMm6K3x45rV82YMlULhdK/+WRSokxVy9cump7y3aeV7e3hnOe4EDKcjL2fN8DpZPzSKaWov9rPKyVVI1+Sl5ZwJr9t5jOEgvPeUllhwKnjBla6w+5G/TUeKRKiTEqIK1XK4nZW1PWYhZ5rzAsRIiNBq8SStbPR1WaG3eoMKkVCiGx6ZsJaKSF3ch03UEZ2QQrmlRSh9ZoRDEODSlHIJFq5jOZtP9n+DQCHkPONaSFCZdy7bg6S09XIK05DW33P8FIkRMZ1XC4Z96yZiSRdAnRZWjTXdg0rJU2jKNx6XH/O6nDXA2AQIjErJJiMlsZ+7P2iAS4XBeCRcd+jc6FJigcAyORSTJ6mQ2udEQ6bC5RSXL9mRmFRIlQJnA4GCZSRMyUVd6+ZBanMMyDVJMUj1SuFeqU0N1hw66wUSCQ3x0hSCZE5nEzDsWu9BgDs6x4PMSlkOBn7vmxkyVAn+n/64+Qy5BanDZECuFwMCqcm8h6XS8aiB2ZCKvUfjAZKsVldSE1TIlXnX4dui6Nuz/nOHgBXANBQzj3mnkMiIcOHSq1ATpFucNtmdfEeN1QZPtInJSFJpx7cHhhws/LIZVK59zzSeQ8cQEwJiaQMALhQ0YCa0y2D27kFGs58QmW4nAzKd1Whu8MziJJKCCbnsZ95Ovvtfd4/uQ/MQcwIGQ0ZVRWNg9v5hRrMmJ3KyheujI6m3sG0O+/OQkoquy77q7pqvX+GfGuICSHDjab2727yk3HvujmCZOTmq7Fydb7fTRfgHk0tWj1DkIyFv8zEnNt1rLwdJkfN4epuo3fTylvZAKIuJJyhrW80xQWXjFVrCiCVDS/jnjUzB0dTgfDJuP0O9u2BUjBbypt3DEkysjLxEFUhE1EGABy6YtzxTnnzNe9mJ4AbvJUOIGpCJqqMM42m/Y9vqdrn3aQALvBWmoOoCJnIMko3nv1kaNUg4HIFREHIT0jGFQA1vBXnYUx/D/mJyfiRt+JBGDMhoozQGBMhoozQGXUhogxhjKoQUYZwRk2IKCM8RkWIKCN8Ii5ElDEyIipElDFyIiZElBEZIiJElBE5RixElBFZRiRElBF5whbSuWnJcgq6BxNMRmV93977N58rG5I0ZjKAMIUYNi4thIQ5B4AV5CTKGBnBw/h4IBLmFTrxZVRD4K99kUBwD2n5x7IUudRpQIDM1iYL9u5ih3cKiQ7JK9Sg9IF8VtRHREJ1FmVi3oKQ7xlRkQGE0UMUMlcJpf77Ddxw4es9zaMio6HOPKoyYqVn+BD8Ey6lyA1Ma6g3w27zhGmGGzdVupotAwCuVN9s2HDjpoL1DI57RtRkAGEJYVhBw2QUv8QXVDQBSPiVqcYY38C5EBz9/uLygkkg5JGhaQmaOFRf7IXbxcBpd6HlmhGTp6ZBruS+ImbmJgMADC2e0FdTnwOdnVYUFSexogtlMgmu1njy9fdZ0dtpQW5xOisfAEgkBLnT0mFsN8Ni8qwV0NpsgUxGkJ3Djr3NTlJOWzQtWV5W2f45gPMCm2JUECzkmfuKDVIJ8zyG9K64OAkyMuNRV9sHhkF4Unod6DSwpSSlKAAAbS2eWDNzrxW9nf38UqQEecX+Ulqa+KXkpCiLH56fqXr/aOuXQttiNBAsZOOBeuuLywtuAcHMoenaJDmyJ6tRV2sCw9BBKTlFOiiU3DOYuaQY2gcwNUBKTq4n7H+olO4OM/KCSZmeju72flj6PGG1LU0WSKXcUpJUcbPX3p6R9/73rV8JbY9IE9aEnRdKp54jlHkCARP3tVo5snISRialzwFDx/BS+vus6O7o55ciIcgt9pfS2swvJTkhbu5D8zLyP/ghulLCEvL3b+r7XlpReIFSrCPEf2AwzqXMiXZPCXtK2xvfNtQ9eVdWtUouXUMI8StnnEuZ+6sFmYXvHW3dLbhRIsCI5hi+fbilZsUsXWOaRr5qIklJjI+bHS0pI570ua1CXzVRpTw8P3PKWI++IjILd6JKSVKNvZSITYsWpUSGiM5TF6WMnIgvHCBKGRmjspKDKCV8Rm1pDVFKeIzqWieiFOGM+uIzohRhjMlqQLEkxRjjUsZseaZYkWKJcSljul6WKGV4xnwBM1FKcKKyopwohZ+oLfG3rUJfVTonvT1VLS+N5o9coyGldHZ68taKtm8FNwqivObi1mNt51bNSdNPNCk6tXx+drK85cClbsGRLFFfBHPrsbZzK2bpOtI0ipUTRQohIOkaRfGW8pbDELj4TNSFAMC2Cv3Z+25NacrQKkq57ikZmfGou2oKP8SozwFjlyfEaGggHZeUHoPwuC+FQorMbJVfXrVSpjvfbK693mVtADAQalvEhBAA+PhE+4Xls9IMXD0lMUmBzCzViKT09TqgSpAhI8u/4VgPj71W9BiExX21NVtQVJyIeJV/Xexuev3ARWMvgIZQ2yFmhACensJ3TwlXitPhhlHvWT2UEILiW5JY+cKV0t7YC6vFDkqB5FQFS3aHyV6366yhDR4hzlDaIOprLgay+LVT71e1mNZTSlknMDlfg1Vr8iHzzh25YbbhYNmPg5/UQAYsdrTW3byEq+L5P38LfpGB+XdmDG63Xe/G0S8vwu3mXv+4q60PJqNlcDuwdwDAgIPxVSyN98ABxJwQAFj25tmtl/SWpxgK1urEoUoZsNhxsOxH9Pd6bsBSKcHc+cHbJVQp7Y09OLLrIlwuz8SklFQlCovYK2bXd1k7vH+G9CYgIMYuWUMZ7vIVLGx1oN+OgztuypBIJFixOo9ziBoI1+XLOCRsNVCGWivHA48UID7ev4c43Yx1/YeXttqcDAOgFUBPKOcds0KA4YfEXKOv1Ewtjuy+6Cdj5epcFBZpWeW73NTG9YYEvtFXnFyG73dfGpSh0cZh7aNF0CbKWWWfqjft+29F20Xv5lUAFlYmDmJaCODpKXxSuHpK/cV2OLyThzw9g1uGm6H2F3bW/iUjUcFkJSqKAv/P1VMaawxgvNNj1Fo5Hlo3hVOG2epqe3zL+S19VpcLnpv5GYS4GH/MCwGCSwl8ePQRTAalYD460b5l44GGy2Wn9FVLf6ZTZSYqpgbmC5TiwyOjkFOGzcmYni2rea2yweRb9/0KgA5WRh7GhRBg+IfH3Hw1erptsFld0KWrsHxVLnLz1axyKAWz81T7uxt2XKnwbrv3XNa/cf/MrLwklWxGYP6cXDW0iXJ0G21gGIrCKRqsXJ0HjZZLhtv84s7aV71DXQAwA6iEgBe6jKu3tAHAgefnPTF7svY9Qoig1+YBN2U8vb3mB18SgOMAmikFOf3nO7fn6ZTrwqmXV8YrO091+F7HYAPwHYB+IeXE5LA3GMvePLv1sr6f8zklGDwyKgE0AwAhoD//2/HHmoy2HbyF8MAj4zAEygDGYQ/xUf7S/PXTsxLekUiG7ykMhfvTyvZ3ny2rOeZN8slgfaXh6SkLP87TxT8WSj2sDnfvCztrX/38dIfvMuWTYQrtTPwZt0IA4LM/zF51W17iB2qFjPcNNlaH27jpYNPbG//XeMWbxCtjKPufnffqnFztczIp4X2oM5js1b/dVv3W8bpe3zzsEckAxtFNnYvPThuuHqjq+yJRJVNq4mVyuUyikEqhsDupudNsrzt8pWffI++e//fhmp5O7y4MPDIagxQLANh+sv1Qbae1MlkVp1IrpAqZVKIkhEhsTndPk9F2fkelvmzdlgs7W3psvq8IrADKMQIZwDjvIUPQAVgIgD2suskAgBPwvD5CCEUA5iL4qhed8AwOQn5xCx8TRQjgGaAUAJgMIBmAAoAdQB+AFnguUew3d4WGEh4xk+CRLoPn8tQFT2/Tj6TiIiIiIiIiIiIiIiIi0eT/tXw6jFOq51AAAAAASUVORK5CYII=">
+                    </span>
+                    <span class="sr-only">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-target="#depoimentos-carousel" data-slide="next">
+                    <span aria-hidden="true">
+                        <img width="50px" height="50px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABmJLR0QA/wD/AP+gvaeTAAANB0lEQVR4nO2de3AURR7Hvz37SjbJ5rkPQkhCCATkVYAxBRxoEgRBylOwRM/7w7or7w+9QrEKzjur7jiPO+s8TghHqdT5AL0SC1FBVDwEAuGhIBAQySF5sMlu3s/dbJLdZGf6/ti8dmd3szO7m93gfP7KdPf0zsxnuqdn8usZQEJCQkJCQkJCQkJCQkJCInog4ai0aWfxWobhfkkpWQpAD6CPUnKLEPoFKHlD//yJZjH1ml5bHKuSqX9FKV0HYA4ItABaAFyjFAfbu1L3zd76UX8Id2XcCamQtteKJrMy7AewzE8xGwi26DeefENI3Y07VtzHMNz7ADL8FKuhhHvSsPHUt0LqjiZCJqRhx4pZMoY7DiA9kPJOltudvunURkJAxyrbvKv4SVD6LgDFWGUphYOj9Bfpm0o/CWQ7og0mFJW07izMkzH0BAKUAQByGfPbir8u20+p/5OiaWfxBlC6FwHIAABCoGII+ejiH5c8Hei2RBNBC2ndWZjHEaYUoJOErpuWoNhQ/uelB31JadpZvIEQ+h8AciH1EgImMyXmzVMvFjwjdJsiTVBdlj8ZPbYBnD7egLrabqjVcty9WI+75iR7rcfc6fh04Z/OrR/dffmT0WjuRdnJenS025GmU+Pe4knQGdS8eikFd6PB9lzxqxd3B7Of44loIS0l90+nYM/ANYpyw2btx8cf1sBqcR/wLLpHhyX3GrzWV9vRdyB/6zePEwLaUlL4GAX5AIDMs5yxphtfHjKCZUcuPXI5wdpHsjElO4FXL0fBXjdbn125/dIeofsYCXg7HAgde1Yksk7uJIAszzxfMgCgsb4HrJNiSnY8Ly8pVjG74qhh1l/W5d4EmCMAVJ5lvMkAAI4Dqm5ZYJikRmKS+2qEgNFpVKtXzUltfv98w2Wh+zreiBKy6f7srQR42DPdU4ZMRrD84TlgnRysHb0AxpZCKXmKEMR55nnKSEiORdH6+Wiq60S/wxmQlNXz0preOxfdUgQLuf3ufTFKBzkIQDk63buMuZiSm4asPC06W3oCkkIIfzTlTcbKJxYgKS0OmTO0MFW2BSRFm6BaE+1SBAv5Q3FOEYBfj05jnRQHP6iBpcvhqlTO4L718zA5JxUAQAhB5gwdOlu6Ye3sA+CSAgAZmXwpo2lvtePQgRqeDHW864ArVXJMme6SMnAHSBE87CUcZnimVVda0NlhBzAoY91cpGenuJUZajEZ01KH0y6eb8aFc/6fopRfavUpY4j4xBisfGIB4jQxAACnk+LzT40wGbt59TEEsjnpCW+U/q7g2UD2d7wRLIQyNNYzra+PHf47KS0euslJXtcVI2V03Rm5aTwZQwiRQgiYmZPiSo5vyf+Nzx+OEIK7rM2rpuWAYN3oNKWSQcW1DlAK9NkcaGu0IitPB0bGH1UzDEFmnnv3VW/y3X057E7U1rgOaluDFQBgyPR+P6OMEd59RdvoS7CQF1ZP62JAN41Oi1XLoVDKUDd4Ntos9pBJ0epj0dbSh65O12Ch2dQFIHRS9BrVmgfn69r3nav/TuixCAeChfzzqxrL5tVTi+BxD2JIV0OpYlBntAFwSWkxdyE7TwdGxu8ZGYYga6b76KvexB99EUKQm5eIthY7ujpdg4ZmUxdYJ8WkbN9SBIy+SGq8clW0XOhF3YdsXj31FoCn4HENmpQe5yalx+rwK4UQEtCQ2CVF4yaltd7iX4pKkJSo6b5ECdn+1W3T5jXZfQC53zNvIkuJhptHUUIAYPtR4/mnl2doYpSyxZ55E1pKgurBSF5TRAsBgN0n6o5tyDcYEtWKuz3zJrAUkhavfCBSUoISAgD/LjN/8egiQ3pynGKRZ95El7J6nrbjvXP1F0UeGlEELQQA3jpj/vxOlKJNGH8pIRECSFJCRciEAJKUUBBSIYAkJVhCLgSQpARDWIQAkhSxhE0IIEkRQ1iFAJIUoYRdCCBJEcK4CAEkKYEybkIASUogjKsQQJIyFuMuBJCk+CMiQoBBKfmGzGS1YoFn3kSWkpagXHVfXqpx/4WGa2KOS8SEAMBbZebP7kApjE6jXKVRK8tO3WyvE3pMIioEuDOlyBiiSIqV571zxnwUgE3I8Yi4EMAlZf0i/WRf1xS5gsBUOyLFX4hRoGGrhBBMm5GI1uaREKPWegsAPyFGPsJWJ6XHQZPkFuqMlDhFxn9vtFW0WPurAAQ8ETUqhADA22fMR3y1lPTJ7lLExn3pDbFISlG5lcvNS3KTIibu63Z1N2bNTYZCMdJqCQFxsrTmREV7OwBToMchaoQAg92Xj9FX+mT37ktM3BflKHLzknjlps8MLu6LdXJISVVBq3ePsm3u7q86dKW5BUAlANZrZZ7bHUih8SRHF9savtr9TBgTOpeMN3eYXwGloIMZukCrFTSZMtw0lRS9QoEXveVdvtiC86ebhpcNWckoXDcPcoX3c4plKcoO/QBzdftwWt5s/hnPshRfHqqFsWYkKHve0mzMXzrV53baLHYc21+OHqsr4l8VI0f2NP50usYu+9CP8ydA+iBqWkhLSdE2ElIZ191k3LNEj6keB80lwxiUDLmcYM1DmVCr3c9tCrDvnTdX+KzIB1HRQvy1jPJLrW4ydBmJKHxkrk8ZHMeh7PANNxmLCnQoWKrnlTv6WZ2bjNkFWX5l9Fjs+PpDdxlrH8lGRhY/ar+yqefb/zX09gwu9vqs1IOIt5CmkqJXfLWM8kutOFvaOLysy0hE8aPzIVd6H4twHIfTh27AXNU2nLaoQIclyw28cl8ersPtKutw2uyCLCy8N8fndvZY7Dj2YTlsFncZ3mb+9rO0d+vhqgODixRAwO92iaiQO1EGR8HuKTX960RF+9DgpBYC7kMiJsTfNWMiy3jnjHnXtiNVQ8+x+gF877NyL0RESEtJ0TYKvOQtb6LLeOnjW0PxwByA8wB6eIX9MO5CfkIyzgFo5BUeg7C8wMwXPzEZZp8/4IdxEyLJCIxxESLJCJywC5FkCCOsQiQZwgmbEEmGOMIiRJIhnpALkWQER0iFSDKCJ2RCJBmhISRCJBmhI2ghkozQEpQQSUboES2kuaR4C0D/7i1vIsvYe9a86/cHIyMDECmkpWTFzyi40/Dy+F6SERyi/h9Cwf3N27p3mIzzGGcZgIgW0rC7KEvGwuiZfvVSG86UNgwviw3V4UeHuEJ1blcHF6oj4j99AYd/hhLBLUTGYrlnWke7HedOj7SMUMkAgOtXO8IqY+/Z6JEBiOmyCOW9Td9U2wOOc8VWpho0IZMBACbjSDc1K39KyGV4uWZETAYg5kXKlOEFfanVI9eIrjYbWuq7vK4rVAYAxMSOxPKZq9rQa3N4LSemm4qGa4Ynwl+kTGilZ1pObiKSU1wvMGadHE59ch0Nxg63MmJkAMCCfC1kg1MOujv7cGx/OU/KRO+mRiN4OsKzj2XVKxzkOYz6nATDEOTkJqCmygqHgwXlKOputiBZlwBNitpneOfiZd6/JTIatVoOrV6N6koLKAf0252o+7EVmTO0UKrkPsM7o3lo6w/BQkoOG51b1mTHA8TtS2xKlQzTpieiutKCfgcHSgFTZSuStPEoP1XNaxm+ZDhZamcY4hZznJSsQpo2FlW3rKCUYsDhhLm6HSn6BJR+cj0YGVHRTY1G1I1h+67VmgHquECAmZ55/j7oAni/zxjiqsl67O0y84kdT8x6Wc4Q7x90OWwE6+R/2E2kjKjopkYj6sYwdeNRKwPZQ06OtnvmxWuUWP94DjSJSt56Y8lYs+PSvgMXm0wffNOwh1JwnmWycxKw5ufZkMndz6M7RQYQ5MPFGy8vnR2vlpfFKGQpnnk9tgGUnahHrdEGtVqO/MV6zPLxUbAfzLaTK1+7+DbLDs9LuvX9y0vm6hJj3iJeutVGcy/KShvQ0dYHrT4Wy4omQ2/gfbQh6m76AiHox+9fPb9o4ayM+K+9SQkEbzIAXAaAk1vyn7lrcsIub1LGYiLKAEIQ2/vAzstXrtd1r7QPsB1jl3bHi4wqDMoAgKJXv3u9or57Iw1wwuQQfh6hR7UMIETB1mt3Xbl8zdT7gBAp5UbrUS8yeG+SLnr1u9dvNvW+wNHApHAcHYjk/zOCJWTTovdfaGiYm5F4OFEtL4xXyXzOOh1gqf3za637Nrx59RAdGSx5lTHE3rPmC4unaW5qE1RFChnjcwKlzc42bztSvf0fR2//MJg0oWQA4YnL0mxbN31z4czUovRkVV6MQpbk5KjD2jvQWNHYU/7KFzXHrxgt1lHlfwRwJZCK501NyHuuMGvzwkxNQUq8copKQTSOAWpps/XXXqi2XHjxo1tnrfYB52BxFlF4nzEW4YpcjAWwBP7nZw8AuApX6xCCDsBi+J9qbINLBm9YHu2EO9g6HUA2AC2AGABOAN0AGuASYRdZrwxADlzfVk+C6zGOA0AnXBfu2wD/PkZCQkJCQkJCQkJCQkKCz/8B8gktXIfUtxIAAAAASUVORK5CYII=">
+                    </span>
+                    <span class="sr-only">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="container text-center">
+        <h1>{% trans 'Não há nada para ver aqui ainda.' %} :( </h1>
+    </div>
+    {% endif %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xs-12 text-center">
+                <p class="instruction">
+                    {% blocktranslate %}
+                    Para deixar um comentário também basta fazer seu login utilizando o Facebook e
+                    clicar em Deixar Depoimento!
+                    {% endblocktranslate %}
+                </p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-xs-2 text-center">
+                <a href="{% url 'depoimento' %}" class="btn btn-secondary btn-lg rounded-pill">{% trans 'Deixar Depoimento' %}</a>
+            </div>
+            {% if not user.username %}
+            <div class="col-xs-2 offset-1 text-center">
+                <a href="{% url 'login' %}" class="btn btn-primary btn-lg rounded-pill">Login</a>
+            </div>
+            {% endif %}
+        </div>
+        <a class="referencia" target="_blank" href="https://icons8.com/icon/121624/pixel-star" rel="noopener noreferrer">
+            Pixel Star and Arrows Icons by Icons8
+        </a>
+    </div>
+</div>

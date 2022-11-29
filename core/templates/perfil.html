@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %}Perfil{% endblock %}
+{% load i18n %}
+{% block content %}
+<div id="perfil">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 mb-3">
+                <h4 class="text-center espacar">{% trans 'Bem-vindo(a)' %} {{ user.get_full_name }}</h4>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            {% for a in backends.associated %}
+                {% if a.provider == 'facebook' %}
+                    <div class="col-md-4 text-center">
+                        <img src="{{ a.extra_data.picture.data.url }}" alt="" width="300" height="300"/>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="row social-item">
+                            <div class="col">
+                                <p class="bg-light">{% trans 'Nome:' %} {{ a.extra_data.name }}</p>
+                            </div>
+                        </div>
+                        <div class="row social-item">
+                            <div class="col">
+                                <p class="bg-light">{% trans 'Logado via:' %} {{ a.provider|title }}</p>
+                            </div>
+                        </div>
+                        <div class="row social-item">
+                            <div class="col">
+                                <p class="bg-light">Profile:
+                                    <a href="{{ a.extra_data.profile_url }}" target="_blank" rel="noopener noreferrer">
+                                        Link
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <a href="{% url 'depoimento' %}">
+                    <button class="btn btn-secondary rounded-pill btn-lg">
+                        {% trans 'Deixar um depoimento' %}
+                    </button>
+                </a>
+                <a href="{% url 'logout' %}">
+                    <button class="btn btn-danger rounded-pill btn-lg">
+                        Logout
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
