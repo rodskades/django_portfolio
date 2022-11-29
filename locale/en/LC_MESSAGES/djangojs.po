@@ -1,0 +1,55 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-21 01:45-0300\n"
+"PO-Revision-Date: 2022-11-21 17:15-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+
+#: .\core\static\js\skills.js:12
+msgid "<p>Linguagem de programação open-source.</p>"
+msgstr "<p>Open-source programming language.</p>"
+
+#: .\core\static\js\skills.js:13
+msgid "<p>Framework para desenvolvimento web utilizando Python.</p>"
+msgstr "<p>Web developing framework using Python.</p>"
+
+#: .\core\static\js\skills.js:14
+msgid "<p>Banco de dados SQL, sendo atualmente um dos mais populares da Oracle Corporation.</p>"
+msgstr "<p>SQL database, currently being one of the most popular from Oracle Corporation.</p>"
+
+#: .\core\static\js\skills.js:15
+msgid "<p>Banco de dados SQL de open-source.</p>"
+msgstr "<p>Open-source SQL database.</p>"
+
+#: .\core\static\js\skills.js:16
+msgid "<p>Biblioteca escrita em C que implementa um banco de dados SQL.</p>"
+msgstr "<p>Library written in C that implements an SQL database.</p>"
+
+#: .\core\static\js\skills.js:17
+msgid "<p>Banco de dados NoSQL de open-source que utiliza documentos semelhantes a JSON.</p>"
+msgstr "<p>Open-source NoSQL database using JSON-like documents.</p>"
+
+#: .\core\static\js\skills.js:18
+msgid "<p>Armazenamento de estrutura de dados em memória, utilizado como um banco de dados NoSQL.</p>"
+msgstr "<p>In-memory data structure storage, used as a NoSQL database.</p>"
+
+#: .\core\static\js\skills.js:19
+msgid "<p>Banco de dados NoSQL de open-source conhecido pela facilidade de uso.</p>"
+msgstr "<p>Open-source NoSQL database known for ease of use.</p>"
+
+#: .\core\static\js\skills.js:20
+msgid "<p>Sistema de controle de versões distribuído, usado principalmente no desenvolvimento de software.</p>"
+msgstr "<p>Distributed version control system, used primarily in software development.</p>"

@@ -1,0 +1,501 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-21 01:49-0300\n"
+"PO-Revision-Date: 2022-11-21 01:51-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+
+#: .\biblioteca\templates\base_bib.html:14
+#: .\biblioteca\templates\bib_table.html:6
+msgid "Biblioteca Pessoal"
+msgstr "Biblioteca Personal"
+
+#: .\biblioteca\templates\base_bib.html:20 .\core\templates\base.html:16
+#: .\core\templates\base.html:22
+msgid "Portfólio"
+msgstr "Portafolio"
+
+#: .\biblioteca\templates\base_bib.html:27 .\core\templates\base.html:29
+msgid "Início"
+msgstr "Introducción"
+
+#: .\biblioteca\templates\base_bib.html:30
+msgid "Sobre a Biblioteca"
+msgstr "Acerca de la Biblioteca"
+
+#: .\biblioteca\templates\base_bib.html:37 .\core\templates\base.html:42
+msgid "Biblioteca"
+msgstr "Biblioteca"
+
+#: .\biblioteca\templates\base_bib.html:47 .\core\templates\base.html:58
+#: .\core\templates\depoimento_del.html:12
+#: .\core\templates\depoimento_del.html:31
+#: .\core\templates\depoimento_form.html:23
+msgid "Olá"
+msgstr "Hola"
+
+#: .\biblioteca\templates\base_bib.html:50 .\core\templates\base.html:61
+msgid "Perfil"
+msgstr "Perfil"
+
+#: .\biblioteca\templates\base_bib.html:79 .\core\templates\base.html:90
+msgid "Feito em"
+msgstr "Hecho en"
+
+#: .\biblioteca\templates\bib_sobre.html:6
+msgid "Sobre a Biblioteca Pessoal"
+msgstr "Acerca de la Biblioteca Personal"
+
+#: .\biblioteca\templates\bib_sobre.html:13
+msgid ""
+"\n"
+"                            A presente aplicação foi previamente elaborada "
+"como uma aplicação CRUD em Python e\n"
+"                            posteriormente adaptada para o Django.\n"
+"                            "
+msgstr ""
+"\n"
+"                            La presente aplicación fue desarrollada "
+"previamente como una aplicación CRUD en Python y\n"
+"                            posteriormente adaptada a Django.\n"
+"                            "
+
+#: .\biblioteca\templates\bib_sobre.html:19
+msgid ""
+"\n"
+"                            A modelagem de dados foi realizada em MySQL "
+"Workbench e a aplicação CRUD utiliza o banco\n"
+"                            de dados SQLite, assim como a presente "
+"aplicação.\n"
+"                            "
+msgstr ""
+"\n"
+"                            El modelado de datos se realizó en MySQL "
+"Workbench y la aplicación CRUD utiliza la base de datos SQLite,\n"
+"                            al igual que la presente aplicación.\n"
+"                            "
+
+#: .\biblioteca\templates\bib_sobre.html:42
+msgid "Para visualizar a versão CRUD da minha biblioteca, acesse:"
+msgstr "Para ver la versión CRUD de mi biblioteca, vaya a:"
+
+#: .\biblioteca\templates\bib_table.html:13
+msgid "Seja bem vindo(a) à minha biblioteca pessoal!"
+msgstr "¡Bienvenido(a) a mi biblioteca personal!"
+
+#: .\biblioteca\templates\bib_table.html:14
+msgid ""
+"Estão armazenados na tabela a seguir todos os dados sobre os livros que eu "
+"tenho!"
+msgstr ""
+"¡Todos los datos sobre los libros que poseo están almacenados en la "
+"siguiente tabla!"
+
+#: .\biblioteca\templates\bib_table.html:26 .\core\models.py:9
+msgid "Nome"
+msgstr "Nombre"
+
+#: .\biblioteca\templates\bib_table.html:27
+msgid "Gênero"
+msgstr "Género"
+
+#: .\biblioteca\templates\bib_table.html:28
+msgid "Autor"
+msgstr "Autor"
+
+#: .\biblioteca\templates\bib_table.html:29
+msgid "Número de Páginas"
+msgstr "Número de Páginas"
+
+#: .\biblioteca\templates\bib_table.html:30
+msgid "Concluído?"
+msgstr "¿Concluido?"
+
+#: .\biblioteca\templates\bib_table.html:48
+msgid "Livro"
+msgstr "Libro"
+
+#: .\biblioteca\templates\bib_table.html:63 .\core\templates\perfil.html:21
+msgid "Nome:"
+msgstr "Nombre:"
+
+#: .\biblioteca\templates\bib_table.html:65
+msgid "Autor:"
+msgstr "Autor:"
+
+#: .\biblioteca\templates\bib_table.html:67
+msgid "Editora(s)"
+msgstr "Editora"
+
+#: .\biblioteca\templates\bib_table.html:76
+msgid "Complemento(s):"
+msgstr "Complemento:"
+
+#: .\biblioteca\templates\bib_table.html:90
+msgid "Fechar"
+msgstr "Cerrar"
+
+#: .\core\models.py:13
+msgid "Nota"
+msgstr "Clasificación"
+
+#: .\core\models.py:13
+msgid "Dê uma nota para o site!"
+msgstr "¡Califica el sitio!"
+
+#: .\core\models.py:16
+msgid "Título"
+msgstr "Título"
+
+#: .\core\models.py:16
+msgid "Máximo 50 caracteres."
+msgstr "Máximo 50 caracteres."
+
+#: .\core\models.py:18
+msgid "Comentário"
+msgstr "Comentario"
+
+#: .\core\models.py:18
+msgid "Máximo 300 caracteres."
+msgstr "Máximo 300 caracteres."
+
+#: .\core\models.py:21
+msgid "Depoimento"
+msgstr "Testimonio"
+
+#: .\core\models.py:22 .\core\templates\base.html:50
+msgid "Depoimentos"
+msgstr "Testimonios"
+
+#: .\core\templates\404.html:10
+msgid "ERRO 404"
+msgstr "ERROR 404"
+
+#: .\core\templates\404.html:11
+msgid "A página procurada não existe."
+msgstr "La página que buscas no existe."
+
+#: .\core\templates\404.html:12
+msgid "Verifique se a url está correta ou tente novamente"
+msgstr "Asegúrate de que la URL sea correcta o vuelve a intentarlo"
+
+#: .\core\templates\404.html:12
+msgid "mais tarde"
+msgstr "más tarde"
+
+#: .\core\templates\404.html:14 .\core\templates\500.html:15
+msgid "Página inicial"
+msgstr "Página de inicio"
+
+#: .\core\templates\500.html:10
+msgid "ERRO 500."
+msgstr "ERROR 500."
+
+#: .\core\templates\500.html:11
+msgid "Erro de processamento."
+msgstr "Error de proceso."
+
+#: .\core\templates\500.html:12
+msgid "Verifique a conexão ou tente novamente"
+msgstr "Compruebe la conexión o vuelva a intentarlo"
+
+#: .\core\templates\500.html:13
+msgid "mais tarde."
+msgstr "más tarde."
+
+#: .\core\templates\base.html:32
+msgid "Sobre mim"
+msgstr "Sobre mi"
+
+#: .\core\templates\base.html:53
+msgid "Contato"
+msgstr "Contacto"
+
+#: .\core\templates\contato.html:6
+msgid "Contate-me!"
+msgstr "¡Contáctame!"
+
+#: .\core\templates\contato.html:13
+msgid "Contato Profissional:"
+msgstr "Contacto profesional:"
+
+#: .\core\templates\contato.html:46
+msgid "Redes Sociais:"
+msgstr "Redes sociales:"
+
+#: .\core\templates\contato.html:69
+msgid "Fique a vontade para entrar em contato comigo!"
+msgstr "¡No dude en ponerse en contacto conmigo!"
+
+#: .\core\templates\contato.html:70
+msgid ""
+"E para acessar os arquivos que compõem o presente portfólio, acesse o "
+"repositório:"
+msgstr ""
+"Y para acceder a los archivos que componen esta cartera, acceda al "
+"repositorio:"
+
+#: .\core\templates\depoimento_del.html:13
+msgid "Tem certeza que deseja deletar o depoimento"
+msgstr "¿Está seguro de que desea eliminar el testimonio"
+
+#: .\core\templates\depoimento_del.html:19
+msgid "Confirmar"
+msgstr "Confirmar"
+
+#: .\core\templates\depoimento_del.html:23
+#: .\core\templates\depoimento_form.html:49
+msgid "Cancelar"
+msgstr "Cancelar"
+
+#: .\core\templates\depoimento_del.html:32
+msgid "Você não tem autorização de deletar o depoimento"
+msgstr "No está autorizado a eliminar el testimonio"
+
+#: .\core\templates\depoimento_del.html:32
+#: .\core\templates\depoimento_form.html:24
+msgid "do(a)"
+msgstr "del"
+
+#: .\core\templates\depoimento_del.html:39
+#: .\core\templates\depoimento_form.html:31
+msgid "Voltar"
+msgstr "Regresar"
+
+#: .\core\templates\depoimento_form.html:9
+msgid "Alterar seu comentário:"
+msgstr "Cambia tu comentario:"
+
+#: .\core\templates\depoimento_form.html:11
+msgid "Ah safado!"
+msgstr "¡Ay travieso!"
+
+#: .\core\templates\depoimento_form.html:14
+msgid "Adicionar um comentário:"
+msgstr "Añadir un comentario:"
+
+#: .\core\templates\depoimento_form.html:24
+msgid "Você não tem autorização de alterar o depoimento"
+msgstr "No está autorizado a cambiar el testimonio"
+
+#: .\core\templates\depoimento_form.html:38
+msgid "Um título para seu depoimento. Ex: Gostei do site!"
+msgstr "Un título para su testimonio. Ej: ¡Me ha gustado el sitio!"
+
+#: .\core\templates\depoimento_form.html:43
+msgid "Me diga o que achou do site!"
+msgstr "Dime lo que piensas del sitio!"
+
+#: .\core\templates\depoimento_form.html:46
+msgid "Salvar"
+msgstr "Aceptar"
+
+#: .\core\templates\depoimentos.html:17
+msgid "DEPOIMENTOS"
+msgstr "TESTIMONIOS"
+
+#: .\core\templates\depoimentos.html:18
+msgid ""
+"Nesta seção estão alguns depoimentos/comentários de visitantes sobre o meu "
+"site!"
+msgstr ""
+"¡En esta sección hay algunos testimonios/comentarios de visitantes sobre mi "
+"sitio!"
+
+#: .\core\templates\depoimentos.html:47
+msgid "Editar"
+msgstr "Editar"
+
+#: .\core\templates\depoimentos.html:50
+msgid "Deletar"
+msgstr "Eliminar"
+
+#: .\core\templates\depoimentos.html:91
+msgid "Não há nada para ver aqui ainda."
+msgstr "No hay nada que ver aquí todavía."
+
+#: .\core\templates\depoimentos.html:98
+msgid ""
+"\n"
+"                    Para deixar um comentário também basta fazer seu login "
+"utilizando o Facebook e\n"
+"                    clicar em Deixar Depoimento!\n"
+"                    "
+msgstr ""
+"\n"
+"                    Para dejar un comentario también basta con conectarse a "
+"través de Facebook y\n"
+"                    haga clic en Dejar un testimonio\n"
+"                    "
+
+#: .\core\templates\depoimentos.html:107
+msgid "Deixar Depoimento"
+msgstr "Dejar Testimonio"
+
+#: .\core\templates\intro.html:8
+msgid "Seja bem-vindo(a)"
+msgstr "Bienvenido(a)"
+
+#: .\core\templates\intro.html:8
+msgid "ao meu portfólio."
+msgstr "a mi portafolio."
+
+#: .\core\templates\intro.html:9
+msgid "Meu nome é"
+msgstr "Mi nombre es"
+
+#: .\core\templates\intro.html:11
+msgid "Sou desenvolvedor Python/Django"
+msgstr "Soy desarrollador de Python/Django"
+
+#: .\core\templates\intro.html:11
+msgid "e Mestre em Engenharia."
+msgstr "y Máster en Ingeniería."
+
+#: .\core\templates\intro.html:13
+msgid "Entre em contato"
+msgstr "Entre en contacto"
+
+#: .\core\templates\login.html:9
+msgid "Faça seu login!"
+msgstr "¡Iniciar sesión!"
+
+#: .\core\templates\login.html:14
+msgid ""
+"\n"
+"                        O login com Facebook é seguro e prático, além de ser "
+"uma das redes sociais mais\n"
+"                        utilizadas no mundo, por isto escolhi esta forma de "
+"login para meu site!\n"
+"                        "
+msgstr ""
+"\n"
+"Iniciar sesión con Facebook es seguro y práctico, además de ser una de las "
+"redes sociales más\n"
+"utilizadas en el mundo, ¡por eso elegí este método de inicio de sesión para "
+"mi sitio web!"
+
+#: .\core\templates\login.html:21
+msgid "Login com Facebook"
+msgstr "Iniciar sesión con Facebook"
+
+#: .\core\templates\perfil.html:9
+msgid "Bem-vindo(a)"
+msgstr "Bienvenido(a)"
+
+#: .\core\templates\perfil.html:26
+msgid "Logado via:"
+msgstr "Ingresado a través de:"
+
+#: .\core\templates\perfil.html:46
+msgid "Deixar um depoimento"
+msgstr "Dejar un testimonio"
+
+#: .\core\templates\skills.html:6
+msgid "HABILIDADES"
+msgstr "HABILIDADES"
+
+#: .\core\templates\skills.html:7
+msgid "Passe o mouse por cima de alguma das habilidades."
+msgstr "Pase el mouse sobre cualquiera de las habilidades."
+
+#: .\core\templates\sobre.html:8
+msgid "SOBRE MIM"
+msgstr "SOBRE MI"
+
+#: .\core\templates\sobre.html:16
+msgid ""
+"\n"
+"            Meu nome é Rodolpho Kades, sou desenvolvedor Python e engenheiro "
+"mecânico.\n"
+"            Tive meu primeiro contato com a programação durante a "
+"universidade e me apaixonei pela área.\n"
+"            "
+msgstr ""
+"\n"
+"            Me llamo Rodolpho Kades, soy desarrollador de Python e ingeniero "
+"mecánico.\n"
+"            Tuve mi primer contacto con la programación durante la "
+"universidad y me enamoré de la zona.\n"
+"            "
+
+#: .\core\templates\sobre.html:22
+msgid ""
+"\n"
+"            Fui apresentado à linguagem Python por um professor e a utilizei "
+"principalmente em trabalhos de\n"
+"                análise de dados durante as disciplinas.\n"
+"                Posteriormente, em 2017, desenvolvi meu primeiro projeto em "
+"Python, um package para solucionar um\n"
+"                problema termodinâmico que estudei em meu TCC.\n"
+"            "
+msgstr ""
+"\n"
+"            Un profesor me introdujo en el lenguaje Python y lo utilicé "
+"principalmente en\n"
+"                análisis de datos durante los cursos.\n"
+"                Posteriormente, en 2017, desarrollé mi primer proyecto en "
+"Python, un paquete para resolver un\n"
+"                problema termodinámico que estudié en mi TCC.\n"
+"            "
+
+#: .\core\templates\sobre.html:37
+msgid ""
+"\n"
+"            Após a faculdade, decidi obter o título de mestre em engenharia "
+"e utilizei uma combinação de Python\n"
+"                com ANSYS Fluent (mecânica dos fluidos) para obter dados e "
+"analisá-los.\n"
+"                Decidi então me aprofundar em Python e me tornar "
+"desenvolvedor, concluindo cada vez mais cursos\n"
+"                on-line para aprofundar meus conhecimentos.\n"
+"            "
+msgstr ""
+"\n"
+"            Después de la universidad, decidí obtener una maestría en "
+"ingeniería y utilicé una combinación de Python\n"
+"                con ANSYS Fluent (mecánica de fluidos) para obtener datos y "
+"analizarlos.\n"
+"                Entonces decidí profundizar en Python y convertirme en "
+"desarrollador, completando más y más cursos\n"
+"                cursos en línea para profundizar mis conocimientos.\n"
+"            "
+
+#: .\core\templates\sobre.html:45
+msgid ""
+"\n"
+"            Hoje possuo conhecimentos avançados de Python, de bancos de "
+"dados SQL e NoSQL e de Django Framework,\n"
+"              que utilizei para elaborar o presente website.\n"
+"            "
+msgstr ""
+"\n"
+"            Hoy en día tengo conocimientos avanzados de Python, bases de "
+"datos SQL y NoSQL y Django Framework,\n"
+"              que utilicé para construir este sitio web.\n"
+"            "
+
+#: .\core\views.py:53
+msgid "Depoimento enviado com sucesso!"
+msgstr "¡Testimonio enviado con éxito!"
+
+#: .\core\views.py:69
+msgid "Depoimento atualizado com sucesso!"
+msgstr "¡Testimonio actualizado con éxito!"
+
+#: .\core\views.py:84
+msgid "Depoimento deletado com sucesso!"
+msgstr "¡Testimonio eliminado con éxito!"

@@ -1,0 +1,55 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-21 01:45-0300\n"
+"PO-Revision-Date: 2022-11-21 17:23-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+
+#: .\core\static\js\skills.js:12
+msgid "<p>Linguagem de programação open-source.</p>"
+msgstr "<p>Lenguaje de programación de código abierto.</p>"
+
+#: .\core\static\js\skills.js:13
+msgid "<p>Framework para desenvolvimento web utilizando Python.</p>"
+msgstr "<p>Framework para desarrollo web usando Python.</p>"
+
+#: .\core\static\js\skills.js:14
+msgid "<p>Banco de dados SQL, sendo atualmente um dos mais populares da Oracle Corporation.</p>"
+msgstr "<p>Base de datos SQL, siendo actualmente una de las más populares de Oracle Corporation.</p>"
+
+#: .\core\static\js\skills.js:15
+msgid "<p>Banco de dados SQL de open-source.</p>"
+msgstr "<p>Base de datos SQL de código abierto.</p>"
+
+#: .\core\static\js\skills.js:16
+msgid "<p>Biblioteca escrita em C que implementa um banco de dados SQL.</p>"
+msgstr "<p>Biblioteca escrita en C que implementa una base de datos SQL.</p>"
+
+#: .\core\static\js\skills.js:17
+msgid "<p>Banco de dados NoSQL de open-source que utiliza documentos semelhantes a JSON.</p>"
+msgstr "<p>Base de datos NoSQL de código abierto que utiliza documentos similares a JSON.</p>"
+
+#: .\core\static\js\skills.js:18
+msgid "<p>Armazenamento de estrutura de dados em memória, utilizado como um banco de dados NoSQL.</p>"
+msgstr "<p>Almacenamiento de estructura de datos en memoria, utilizado como una base de datos NoSQL.</p>"
+
+#: .\core\static\js\skills.js:19
+msgid "<p>Banco de dados NoSQL de open-source conhecido pela facilidade de uso.</p>"
+msgstr "<p>Base de datos NoSQL de código abierto conocida por su facilidad de uso.</p>"
+
+#: .\core\static\js\skills.js:20
+msgid "<p>Sistema de controle de versões distribuído, usado principalmente no desenvolvimento de software.</p>"
+msgstr "<p>Sistema de control de versiones distribuido, utilizado principalmente en el desarrollo de software.</p>"
