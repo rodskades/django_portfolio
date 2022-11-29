@@ -40,16 +40,21 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'biblioteca',
+    'bootstrap4',
+    'social_django',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.locale.LocaleMiddleware',                   # For the translations
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_session_timeout.middleware.SessionTimeoutMiddleware',  # Automatic logout after a while
 ]
 
 ROOT_URLCONF = 'rodolpho_kades.urls'
@@ -57,7 +62,7 @@ ROOT_URLCONF = 'rodolpho_kades.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -65,6 +70,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',         # For the Facebook login
+                'social_django.context_processors.login_redirect',   # For the Facebook login
             ],
         },
     },
@@ -106,9 +113,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
@@ -118,9 +125,62 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = str(Path.joinpath(BASE_DIR, 'staticfiles'))
+MEDIA_URL = '/media/'
+MEDIA_ROOT = str(Path.joinpath(BASE_DIR, 'media'))
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Automatic logout after a time:
+SESSION_EXPIRE_SECONDS = 3600  # 1 hour
+
+SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
+
+SESSION_TIMEOUT_REDIRECT = 'index'
+
+# Extra Security Resources:
+SECURE_HSTS_SECONDS = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_HTTPONLY = True
+X_FRAME_OPTIONS = 'DENY'
+
+SECURE_SSL_REDIRECT = True  # Na parte de publicação esse aqui, só permite que rode em HTTPS, não em HTTP
+
+# Facebook auth configs:
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',  # Apenas se quiser manter a auth padrão do django
+]
+
+SOCIAL_AUTH_RAISE_EXCEPTIONS = False  # Avoid duplicated accounts
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_URL = 'logout'
+LOGOUT_REDIRECT_URL = 'index'
+
+SOCIAL_AUTH_FACEBOOK_KEY = facebook_id
+SOCIAL_AUTH_FACEBOOK_SECRET = facebook_secret
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link']
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+    'fields': 'id, name, email, picture.type(large), link'
+}
+SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
+    ('name', 'name'),
+    ('email', 'email'),
+    ('picture', 'picture'),
+    ('link', 'profile_url'),
+]
+
+# Translations path
+LOCALE_PATHS = (
+    str(Path.joinpath(BASE_DIR, 'locale')),
+)
