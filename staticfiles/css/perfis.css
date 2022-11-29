@@ -1,0 +1,76 @@
+/* CSS PARA LOGIN */
+#login {
+  min-height: 700px;
+  max-width: 1800px;
+  position: relative;
+  overflow: hidden;
+  padding: 150px 0 80px;
+}
+
+#login .card, #login .card-header, #login .card-body {
+  border: transparent;
+  background: #D99255;
+}
+
+#login .card-text {
+  padding-bottom: 20px;
+}
+
+#login .btn {
+  transition: all 0.3s ease-in-out 0s;
+}
+
+#login .btn:hover {
+  transform: scale(1.1);
+}
+
+/* CSS PARA PERFIL */
+
+#perfil {
+  min-height: 700px;
+  max-width: 1800px;
+  position: relative;
+  overflow: hidden;
+  padding: 150px 0 80px;
+}
+
+#perfil img {
+  border: 3px solid #67888F;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+#perfil img:hover {
+  transform: scale(1.1);
+}
+
+#perfil .social-item {
+  padding-bottom: 57px;
+}
+
+#perfil a {
+    color: #67888F;
+    text-decoration: none;
+}
+
+#perfil a:hover {
+    color: #8E5D52;
+}
+
+#perfil p {
+  border: 2px solid #67888F;
+  padding: 15px;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+#perfil p:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 22px 10px rgba(27, 38, 49, 0.1);
+}
+
+#perfil .btn {
+  transition: all 0.3s ease-in-out 0s;
+}
+
+#perfil .btn:hover {
+  transform: scale(1.1);
+}

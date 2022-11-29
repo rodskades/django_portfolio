@@ -1,0 +1,268 @@
+body {
+  background-color: #e99142;
+  color: #7c1c14;
+}
+
+a {
+  color: #fff;
+  transition: ease-in-out 0.3s;
+}
+
+a:hover {
+  color: #e99142;
+}
+
+h2, h3, h4 {
+  font-size: 38px;
+  color: #7c1c14;
+  font-weight: 700;
+  font-family: 'Arvo', serif;
+}
+
+h1 {
+  font-size: 45px;
+  color: #7c1c14;
+  font-weight: 700;
+  font-family: 'Arvo', serif;
+}
+
+p {
+  font-weight: 400;
+  color: #7c1c14;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0px;
+  font-size: 18px;
+}
+
+.custom-scrollbar {
+  height: 70px;
+  overflow-y: scroll;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #7c1c14;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #e99142;
+  border-radius: 12px;
+  border: 1px solid black;
+}
+
+/* ANIMATIONS */
+.espacar {
+    transition: ease-in-out 0.3s;
+}
+
+.espacar:hover {
+    letter-spacing: 5px;
+}
+
+.nav-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: #e99142;
+}
+
+.nav-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #e99142;
+  transform-origin: bottom center;
+  transition: transform 0.35s ease-out;
+}
+
+.nav-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom center;
+}
+
+/* CSS PARA BIB */
+#bib {
+  min-height: 800px;
+  max-width: 1800px;
+  position: relative;
+  overflow: hidden;
+  padding: 90px 0 80px;
+}
+
+#bib .about-wrapper {
+  height: 100%;
+  width: 100%;
+  display: table;
+}
+
+#bib .about-wrapper > div {
+  vertical-align: middle;
+  display: table-cell;
+}
+
+#bib .content {
+  margin-top: 15px;
+}
+
+#bib .content p {
+  margin-bottom: 30px;
+}
+#bib .info-livro {
+  padding-top: 25px;
+}
+
+#bib .section-header h1 {
+  color: #67888F;
+}
+
+#bib .bg-custom {
+  background: #D99255;
+}
+
+#bib .thead-custom {
+  background: #7c1c14;
+  color: #e99142;
+}
+
+#bib a {
+  text-decoration: none;
+  color: black;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+#bib a:hover {
+  color: #7c1c14;
+}
+
+#bib th > a {
+  text-decoration: none;
+  color: #7c1c14;
+}
+
+#bib th > a:hover {
+  color: #7c1c14;
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: #7c1c14;
+}
+
+.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #7c1c14;
+  transform-origin: bottom left;
+  transition: transform 0.35s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* CSS PARA PAGINATION */
+.pagination > li > a
+{
+    background-color: #7c1c14;
+    color: #e99142;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: #7c1c14;
+    background-color: #e99142;
+    border: solid 1px #7c1c14 !Important;
+}
+
+.pagination > .active > a
+{
+    color: #7c1c14;
+    background-color: #e99142 !Important;
+    border: solid 1px #7c1c14 !Important;
+}
+
+.pagination > .disabled > a
+{
+    color: #7c1c14;
+    background-color: #e99142 !Important;
+    border: solid 1px #7c1c14 !Important;
+}
+
+.pagination > .disabled > .page-link
+{
+    color: #7c1c14;
+}
+
+/* CSS PARA BIB-SOBRE */
+#bib-sobre {
+  background: #D99255;
+  min-height: 400px;
+  max-width: 1800px;
+  position: relative;
+  overflow: hidden;
+  padding: 80px 0 80px;
+}
+
+#bib-sobre .about-wrapper {
+  height: 100%;
+  width: 100%;
+  display: table;
+  padding: 30px;
+}
+
+#bib-sobre .about-wrapper > div {
+  vertical-align: middle;
+  display: table-cell;
+}
+
+#bib-sobre .content {
+  margin-top: 15px;
+}
+
+#bib-sobre .content p {
+  margin-bottom: 30px;
+}
+
+#bib-sobre .image-content {
+  margin-bottom: 30px;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+#bib-sobre .image-content:hover {
+  box-shadow: 0 10px 22px 5px rgba(27, 38, 49, 0.1);
+  transform: scale(1.2);
+}
+
+#bib-sobre .section-header h1 {
+  color: #4C6475;
+}
+
+#bib-sobre a {
+  color: #fff;
+  transition: ease-in-out 0.3s;
+}
+
+#bib-sobre a:hover {
+  color: #7c1c14;
+  text-decoration: none;
+}
+
+#bib-sobre .ref-sobre {
+  padding: 10px;
+}
